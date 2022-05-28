@@ -17,12 +17,8 @@ app.listen(PORT, (error) => {
 });
 
 app.use((req,res,next) => {
-    console.log(`path: ${req.path}`);//middlware
+    console.log(`path: ${req.path}`);//middleware
     console.log(`path: ${req.method}`);
-    next();
-});
-app.use((req,res,next) => {
-    console.log('Just for test');//middleware
     next();
 });
 
