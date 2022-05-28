@@ -16,6 +16,16 @@ app.listen(PORT, (error) => {
     error ? console.log(error) : console.log(`listening port ${PORT}`);
 });
 
+app.use((req,res,next) => {
+    console.log(`path: ${req.path}`);//middlware
+    console.log(`path: ${req.method}`);
+    next();
+});
+app.use((req,res,next) => {
+    console.log('Just for test');//middleware
+    next();
+});
+
 app.get('/', (req, res) => {
     const title = 'Home';
     res.render(createPath('index'), {title})//путь
