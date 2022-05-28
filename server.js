@@ -1,5 +1,6 @@
 const express = require('express');
 const path = require('path')
+const morgan = require('morgan')
 
 
 const app = express();
@@ -21,6 +22,8 @@ app.use((req,res,next) => {
     console.log(`path: ${req.method}`);
     next();
 });
+
+app.use(express.static('styles'));
 
 app.get('/', (req, res) => {
     const title = 'Home';
